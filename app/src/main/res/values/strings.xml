@@ -10,4 +10,8 @@
     <string name="logins">Login</string>
     <string name="sign_ups">Sign Up</string>
     <string name="remember_me">Remember Me</string>
+    <string name="home_screen_background">Home Screen Background</string>
+    <string name="profile_icon">Profile Icon</string>
+    <string name="home_icon">home icon</string>
+    <string name="rocket_icon">Rocket icon</string>
 </resources>

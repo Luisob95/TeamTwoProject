@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
                 else {}
             });
             /*
-            boolean tester = false;
-            if (!tester) {
+            boolean loggedIn = false;
+            if (!loggedIn) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
