@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 public class UserManager {
-    private static boolean userLoggedIn = false;
+    private static boolean userLoggedIn = true;
     public static boolean isUserLoggedIn(){
         return userLoggedIn;
     }

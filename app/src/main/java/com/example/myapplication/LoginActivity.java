@@ -13,8 +13,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
             setContentView(R.layout.page_login);
             Button loginBtn = findViewById(R.id.btnLogin);
             EditText usernameEditText = findViewById(R.id.username_EditText);
@@ -30,6 +28,6 @@ public class LoginActivity extends AppCompatActivity {
             });
 
 
+         }
     }
-}
 

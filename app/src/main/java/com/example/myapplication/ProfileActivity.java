@@ -6,23 +6,22 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_home);
+        setContentView(R.layout.page_profile);
 
+        ImageButton btnHome = findViewById(R.id.home_icon);
         ImageButton btnRocket = findViewById(R.id.icon_rocket);
-        ImageButton btnProfile = findViewById(R.id.icon_Profile);
 
-        btnRocket.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, PlanActivity.class);
+        btnHome.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
             startActivity(intent);
         });
-
-        btnProfile.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+        btnRocket.setOnClickListener(v -> {
+            Intent intent = new Intent(ProfileActivity.this, PlanActivity.class);
             startActivity(intent);
         });
     }

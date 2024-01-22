@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent;
         if (!UserManager.isUserLoggedIn()) {
             intent = new Intent(MainActivity.this, LoginActivity.class);
-        } else {
+        }
+        else {
             intent = new Intent(MainActivity.this, HomeActivity.class);
         }
         startActivity(intent);
