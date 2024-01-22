@@ -11,55 +11,17 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        {
-            setContentView(R.layout.page_login);
-            Button loginBtn = findViewById(R.id.btnLogin);
-            EditText usernameEditText = findViewById(R.id.username_EditText);
-            EditText passwordEditText = findViewById(R.id.password_EditText);
 
-            loginBtn.setOnClickListener(v -> {
-                if ("admin".equals(usernameEditText.getText().toString()) &&
-                    "admin".equals(passwordEditText.getText().toString())) {
-                        setContentView(R.layout.page_home);
-
-                        ImageButton btnRocket = findViewById(R.id.icon_rocket);
-                        ImageButton btnProfile = findViewById(R.id.icon_Profile);
-                        btnRocket.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setContentView(R.layout.page_plan);
-
-                            }
-                        });
-                        btnProfile.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                setContentView(R.layout.page_profile);
-
-                            }
-                        });
-                    } else {
-                    }
-                });
-            }
-            /*
-            boolean loggedIn = false;
-            if (!loggedIn) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        Intent intent;
+        if (!UserManager.isUserLoggedIn()) {
+            intent = new Intent(MainActivity.this, LoginActivity.class);
+        } else {
+            intent = new Intent(MainActivity.this, HomeActivity.class);
         }
-        setContentView(R.layout.page_home);
-        */
-
-
-
-
-
-        }
+        startActivity(intent);
     }
+}
+
