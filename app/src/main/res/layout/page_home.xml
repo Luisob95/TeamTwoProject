@@ -17,14 +17,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/background_homescreen" />
-
 
     <ImageButton
         android:id="@+id/icon_Profile"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/profile_icon"
         android:scaleType="fitXY"
@@ -33,22 +32,22 @@
         app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977"
+        app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/icon_profile_transparent" />
 
     <ImageButton
         android:id="@+id/home_icon"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/home_icon"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977"
+        app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@drawable/icon_home_selected" />
 
     <ImageButton
