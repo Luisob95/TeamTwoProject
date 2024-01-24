@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/background_homescreen" />
+        app:srcCompat="@drawable/background_otherscreens" />
 
     <ImageButton
         android:id="@+id/icon_Profile"
@@ -64,4 +64,52 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/icon_rocket_selected" />
 
+
+    <TextView
+        android:id="@+id/btn_Text_New"
+        android:layout_width="410dp"
+        android:layout_height="59dp"
+        android:gravity="center"
+        android:text="New"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <TextView
+        android:id="@+id/btn_Text_Load"
+        android:layout_width="410dp"
+        android:layout_height="59dp"
+        android:gravity="center"
+        android:text="Load"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <TextView
+        android:id="@+id/btn_Text_Randomizer"
+        android:layout_width="410dp"
+        android:layout_height="59dp"
+        android:gravity="center"
+        android:text="Randomizer"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684" />
 </androidx.constraintlayout.widget.ConstraintLayout>

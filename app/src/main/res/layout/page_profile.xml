@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/background_homescreen" />
+        app:srcCompat="@drawable/background_otherscreens" />
 
     <ImageButton
         android:id="@+id/icon_Profile"
