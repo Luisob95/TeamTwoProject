@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         // Rocket Page Button
         btnRocket.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, PlanActivity.class);
+            Intent intent = new Intent(HomeActivity.this, Activity_Plan_Menu.class);
             startActivity(intent);
         });
         // Profile Page Button

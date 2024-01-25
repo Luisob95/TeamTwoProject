@@ -21,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent);
         });
         btnRocket.setOnClickListener(v -> {
-            Intent intent = new Intent(ProfileActivity.this, PlanActivity.class);
+            Intent intent = new Intent(ProfileActivity.this, Activity_Plan_Menu.class);
             startActivity(intent);
         });
     }

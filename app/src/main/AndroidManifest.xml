@@ -21,24 +21,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- Add LoginActivity -->
         <activity
             android:name=".LoginActivity"
             android:exported="false">
         </activity>
-        <!-- Add HomeActivity -->
         <activity
             android:name=".HomeActivity"
             android:exported="false">
         </activity>
-        <!-- Add PlanActivity -->
         <activity
-            android:name=".PlanActivity"
+            android:name=".Activity_Plan_Menu"
             android:exported="false">
         </activity>
-        <!-- Add ProfileActivity -->
         <activity
             android:name=".ProfileActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".Activity_Plan_Load"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".Activity_Plan_New"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".Activity_Plan_Randomizer"
             android:exported="false">
         </activity>
 

@@ -228,7 +228,7 @@
 
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnGenerate"
         android:layout_width="140dp"
         android:layout_height="57dp"
         android:background="@drawable/rounded_generate_button"
@@ -239,9 +239,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintVertical_bias="0.81" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
