@@ -14,4 +14,14 @@
     <string name="profile_icon">Profile Icon</string>
     <string name="home_icon">home icon</string>
     <string name="rocket_icon">Rocket icon</string>
+    <string name="Profile">Profile</string>
+    <string name="Plan">Plan</string>
+    <string name="Home">Home</string>
+    <string name="generate">Generate</string>
+    <string name="back">Back</string>
+    <string name="confirm_username">Confirm Username</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="signup">Signup</string>
+
+
 </resources>

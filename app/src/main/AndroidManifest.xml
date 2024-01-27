@@ -14,7 +14,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,31 +22,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.login.Login_Menu_Act"
             android:exported="false">
         </activity>
         <activity
-            android:name=".HomeActivity"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Activity_Plan_Menu"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Activity_Plan_Load"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Activity_Plan_New"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".Activity_Plan_Randomizer"
+            android:name=".activity.login.Login_Register_Act"
             android:exported="false">
         </activity>
 

@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 public class UserManager {
-    private static boolean userLoggedIn = true;
+    private static boolean userLoggedIn = false;
     private static Object[][] userStats= {
             {"Push-ups", 25},
             {"Calories", 34},

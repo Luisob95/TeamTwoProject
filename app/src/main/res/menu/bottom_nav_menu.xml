@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btnHome"
+        android:title="@string/Home"
+        android:icon="@drawable/icon_home_transparent"/>
+    <item
+        android:id="@+id/btnPlan"
+        android:title="@string/Plan"
+        android:icon="@drawable/icon_rocket_transparent"/>
+    <item
+        android:id="@+id/btnProfile"
+        android:title="@string/Profile"
+        android:icon="@drawable/icon_profile_transparent" />
+</menu>
