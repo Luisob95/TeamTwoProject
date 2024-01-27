@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.activity.home;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -6,6 +6,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.R;
+import com.example.myapplication.UserManager;
 
 
 public class HomeActivity extends AppCompatActivity {

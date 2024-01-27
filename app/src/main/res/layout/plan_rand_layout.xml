@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey">
+
+    <ToggleButton
+        android:id="@+id/toggle_btn"
+        android:layout_width="314dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/rounded_button"
+        android:checked="true"
+        android:contentDescription="@string/home_screen_background"
+        android:scaleType="centerCrop"
+        android:textOff="@string/exercises"
+        android:textOn="@string/all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/tog_ExerciseType_Recovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_toggle"
+        android:checked="false"
+        android:contentDescription="@string/home_screen_background"
+        android:scaleType="centerCrop"
+        android:textOff="Recovery"
+        android:textOn="@string/recovery"
+        app:layout_constraintEnd_toStartOf="@+id/tog_ExerciseType_Mental"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextFocus" />
+
+    <ToggleButton
+        android:id="@+id/tog_ExerciseType_Mental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_toggle"
+        android:checked="false"
+        android:contentDescription="@string/home_screen_background"
+        android:scaleType="centerCrop"
+        android:textOff="Mental"
+        android:textOn="@string/mental"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextFocus" />
+
+    <ToggleButton
+        android:id="@+id/tog_ExerciseType_Endurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_toggle"
+        android:checked="false"
+        android:contentDescription="@string/home_screen_background"
+        android:scaleType="centerCrop"
+        android:textOff="Endurance"
+        android:textOn="Endurance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toEndOf="@+id/tog_ExerciseType_Mental"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextFocus" />
+
+    <EditText
+        android:id="@+id/editTextStartTime"
+        android:layout_width="89dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEndTime"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextStartTime"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editTextEndTime"
+        android:layout_width="89dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelTextEndTime"
+        tools:ignore="LabelFor"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/labelTextEndTime"
+        android:layout_width="62dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="88dp"
+        android:text="End Time"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tog_ExerciseType_Mental"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/labelTextStartTime"
+        android:layout_width="69dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="28dp"
+        android:text="Start Time"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/labelTextEndTime"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tog_ExerciseType_Mental"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/labelTextFocus"
+        android:layout_width="40dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="32dp"
+        android:text="Focus"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_btn"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/btnGenerate"
+        android:layout_width="140dp"
+        android:layout_height="57dp"
+        android:background="@drawable/rounded_generate_button"
+        android:drawablePadding="4dp"
+        android:text="@string/generate"
+        android:textColor="@color/red"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.43"
+        tools:ignore="TextSizeCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="96dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextStartTime"></LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
