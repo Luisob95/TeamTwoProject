@@ -1,9 +1,9 @@
-package com.example.myapplication;
-
+package com.example.myapplication.fragments.plan;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,99 +11,84 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+import androidx.fragment.app.Fragment;
+import com.example.myapplication.R;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-public class Activity_Plan_Randomizer extends AppCompatActivity {
-
+public class Plan_Rand_Frag extends Fragment {
+    // Varriables
     private Spinner spnDifficulty;
     private EditText textFrequency;
     private EditText textDuration;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.page_plan_randomizer);
-
-        // Initialization
-        ToggleButton togRandom = findViewById(R.id.toggle_btn);
-        LinearLayout dynamicLayout = findViewById(R.id.linearLayout);
-        ToggleButton togRecovery = findViewById(R.id.tog_ExerciseType_Recovery);
-        ToggleButton togMental = findViewById(R.id.tog_ExerciseType_Mental);
-        ToggleButton togEndurance = findViewById(R.id.tog_ExerciseType_Endurance);
-        EditText editStartTime = findViewById(R.id.editTextStartTime);
-        EditText editEndTime = findViewById(R.id.editTextEndTime);
-        Button btnGenerate = findViewById(R.id.btnGenerate);
-        spnDifficulty = new Spinner(this);
-        textFrequency = new EditText(this);
-        textDuration = new EditText(this);
-
-        // Create Buttons For All Toggle
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Load Layout
+        View view = inflater.inflate(R.layout.plan_rand_layout, container, false);
+        // Initializers
+        ToggleButton togRandom = view.findViewById(R.id.toggle_btn);
+        LinearLayout dynamicLayout = view.findViewById(R.id.linearLayout);
+        ToggleButton togRecovery = view.findViewById(R.id.tog_ExerciseType_Recovery);
+        ToggleButton togMental = view.findViewById(R.id.tog_ExerciseType_Mental);
+        ToggleButton togEndurance = view.findViewById(R.id.tog_ExerciseType_Endurance);
+        EditText editStartTime = view.findViewById(R.id.editTextStartTime);
+        EditText editEndTime = view.findViewById(R.id.editTextEndTime);
+        Button btnGenerate = view.findViewById(R.id.btnGenerate);
+        spnDifficulty = new Spinner(requireContext());
+        textFrequency = new EditText(requireContext());
+        textDuration = new EditText(requireContext());
         createDifficultyBtn(dynamicLayout);
-
-        // Toggle Button Functionality
+        // Listeners
+        // TogRandom Changes the dynamic Layout Adding or subtracking Buttons depending on the toggle state
         togRandom.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Delete Current Dynamic Buttons
             dynamicLayout.removeAllViews();
-
-            // If All
             if (isChecked) {
                 createDifficultyBtn(dynamicLayout);
             }
-            // If Exercise
             else {
                 createTimeSettingsButton(dynamicLayout);
             }
         });
-
+        // Generate call Generate method
         btnGenerate.setOnClickListener(v -> {
             randomizerSaver(togRandom, togRecovery, togMental, togEndurance, editStartTime, editEndTime, spnDifficulty, textFrequency, textDuration);
         });
+        return view;
+
     }
-
-
+    // Methods
+    // For the dynamic Layout if toggle is true
     public void createDifficultyBtn(LinearLayout btnLayout) {
-        // Difficulty Label
-        TextView labelDifficulty = new TextView(getApplicationContext());
+        TextView labelDifficulty = new TextView(requireContext());
         labelDifficulty.setText("Difficulty");
         labelDifficulty.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         btnLayout.addView(labelDifficulty);
-
-        // Drop Down Button
         String[] items = {"Easy", "Medium", "Hard", "Nightmare"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(), R.layout.customspinner, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), R.layout.customspinner, items);
         spnDifficulty.setAdapter(adapter);
         spnDifficulty.setBackgroundResource(R.drawable.rounded_spinner);
         btnLayout.addView(spnDifficulty);
     }
-
+    // For the dynamic Layout if toggle is false
     public void createTimeSettingsButton(LinearLayout btnLayout) {
-        // Label Frequency
-        TextView labelFrequency = new TextView(getApplicationContext());
+        TextView labelFrequency = new TextView(requireContext());
         labelFrequency.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         labelFrequency.setText("Frequency");
         btnLayout.addView(labelFrequency);
-
-        // Frequency Number Box
         textFrequency.setInputType(InputType.TYPE_CLASS_NUMBER);
         textFrequency.setBackgroundResource(R.drawable.rounded_spinner);
         btnLayout.addView(textFrequency);
-
-        // Label Duration
-        TextView labelDuration = new TextView(getApplicationContext());
+        TextView labelDuration = new TextView(requireContext());
         labelDuration.setText("Duration");
         btnLayout.addView(labelDuration);
-
-        // Duration Number Box
         textDuration.setInputType(InputType.TYPE_CLASS_NUMBER);
         textDuration.setBackgroundResource(R.drawable.rounded_spinner);
         labelDuration.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         btnLayout.addView(textDuration);
     }
-
+// Main Random Generator
     public void randomizerSaver(ToggleButton togRandom, ToggleButton togRecovery, ToggleButton togMental, ToggleButton togEndurance, EditText textStartTime, EditText textEndTime, Spinner spnDifficulty, EditText textFrequency, EditText textDuration) {
-
     }
-
-    // Input error Checker
 }
+
+
+

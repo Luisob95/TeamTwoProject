@@ -6,7 +6,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.UserManager;
 public class Login_Register_Act extends AppCompatActivity {       //NOTE: ALSO DONT KNOW WHAT WE ARE TRAKING ABO FROM USER MAY NEED TO ADD EMAIL textEdit
     @Override
     protected void onCreate(Bundle savedInstanceState) {

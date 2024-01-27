@@ -22,6 +22,10 @@
     <string name="confirm_username">Confirm Username</string>
     <string name="confirm_password">Confirm password</string>
     <string name="signup">Signup</string>
+    <string name="all">All</string>
+    <string name="exercises">Exercises</string>
+    <string name="recovery">Recovery</string>
+    <string name="mental">Mental</string>
 
 
 </resources>

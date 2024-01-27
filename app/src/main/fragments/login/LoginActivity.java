@@ -1,12 +1,15 @@
-package com.example.myapplication;
+package com.example.myapplication.activity.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.activity.MainActivity;
+import com.example.myapplication.R;
+import com.example.myapplication.UserManager;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
@@ -14,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
             // Page Layout Setter
-            setContentView(R.layout.page_login);
+            setContentView(R.layout.login_menu_layout);
 
             //Initializers
             Button loginBtn = findViewById(R.id.btnLogin);
