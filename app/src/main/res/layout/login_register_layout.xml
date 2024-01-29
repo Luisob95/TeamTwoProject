@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/red"
+    tools:context=".activity.MainActivity">
+
+
+    <EditText
+        android:id="@+id/username_Reg_EditText"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:autofillHints="Username"
+        android:background="@drawable/rounded_edittext"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:minHeight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iconFullName" />
+
+    <EditText
+        android:id="@+id/password_Reg_EditText"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:autofillHints="Password"
+        android:background="@drawable/rounded_edittext"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:minHeight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_Reg_Con_EditText" />
+
+    <EditText
+        android:id="@+id/password_Reg_ConEditText"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints="Confirm Password"
+        android:background="@drawable/rounded_edittext"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:minHeight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_Reg_EditText" />
+
+    <Button
+        android:id="@+id/btnSignUp_Reg"
+        android:layout_width="117dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginBottom="164dp"
+        android:background="@drawable/rounded_button"
+        android:drawablePadding="4dp"
+        android:text="@string/signup"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_Reg_ConEditText"
+        app:layout_constraintVertical_bias="0.215" />
+
+    <TextView
+        android:id="@+id/btnBack_Reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:text="@string/back"
+        android:textColor="#212121"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp_Reg" />
+
+    <EditText
+        android:id="@+id/username_Reg_Con_EditText"
+        android:layout_width="322dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:autofillHints="Confirm Username"
+        android:background="@drawable/rounded_edittext"
+        android:hint="@string/confirm_username"
+        android:inputType="textPersonName"
+        android:minHeight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_Reg_EditText" />
+
+    <ImageView
+        android:id="@+id/iconFullName"
+        android:layout_width="393dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/icon_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_fullname_3d" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
