@@ -105,17 +105,37 @@ public class UserManager {
                 plan[i][3] = count; // If genre = endurance Find exercise and index to Max and Multiply value by a pre determined scaling value for example  1 min = 1 Max, 2 min = 1.75 Max and so on; For the complete Random generator I could have a dynamic vector that will store fractions of the time Example if freq is 4 and time is 8 to 12 it will take 4 hours divided by frequency indexing up each vectors to get a more even spread the only thing that will be random is the minutes
             }
         }
-        else {
-            //freq = (int) saved[7];
-            //dur = (int) saved[8];
-           //plan = new Object[freq][4];
-            //int perHour = ((start.getHour()-end.getHour())/freq);
-            //for (int i = 0; i <= freq-1; ++i) {
-
-           // }
-
-
-        }
         return plan;
     }
-}
+    public static void exerciseGenerator(Object[] saved){
+        // Initialization
+        Random rand = new Random();
+        boolean isEndurance = false;
+        int durMax;
+        int freq;
+        int count = 0;
+        String exe = null;
+        Vector<String> exeGenChoice = new Vector<String>();
+        if (saved[1].equals(1)) {
+            exeGenChoice.add("R");
+        }
+        if (saved[2].equals(1)) {
+            exeGenChoice.add("M");
+        }
+        if (saved[3].equals(1)) {
+            exeGenChoice.add("E");
+        }
+        // All Random
+        // Difficulty selector
+        if (saved[0].equals(1)) {
+            if (saved[6].equals(1)) { // Easy
+                durMax = 1;
+            } else if (saved[6].equals(2)) { // Medium
+                durMax = 2;
+            } else if (saved[6].equals(3)) { // Hard
+                durMax = 3;
+            } else { // Nightmare
+                durMax = 5;
+            }
+    }
+}}
