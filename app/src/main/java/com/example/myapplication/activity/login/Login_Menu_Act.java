@@ -1,4 +1,5 @@
 package com.example.myapplication.activity.login;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,18 +9,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.myapplication.UserManager;
 import com.example.myapplication.activity.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.UserManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 public class Login_Menu_Act extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,6 @@ public class Login_Menu_Act extends AppCompatActivity {
         EditText usernameEditText = findViewById(R.id.username_EditText);
         EditText passwordEditText = findViewById(R.id.password_EditText);
         TextView signupButton = findViewById(R.id.btnSignUp);
-
         ProgressBar progressBar = findViewById(R.id.progressbar);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         // Button Listeners
@@ -65,6 +62,7 @@ public class Login_Menu_Act extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
+                                    UserManager.setUserLoggedIn(true);
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.
@@ -77,18 +75,11 @@ public class Login_Menu_Act extends AppCompatActivity {
             }
         });
         // Signup
-        signupButton.setOnClickListener(v->{                                   //NOTE: I COULD MAKE THE REGISTER SCREEN A FRAGMENT OR A POP UP BUT NOT SURE YET
+        signupButton.setOnClickListener(v->{
             // Change Activity to Login Register
             Intent intent = new Intent(Login_Menu_Act.this, Login_Register_Act.class);
             startActivity(intent);
         });
-
-
-
-        // Help
-        // Logic Here Im not sure if this is handled by firebase but im
-        // thinking its just a pop up with an edit text input
-        // For email input to search for password
     }
 }
 

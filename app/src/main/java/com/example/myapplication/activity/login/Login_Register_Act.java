@@ -2,14 +2,12 @@ package com.example.myapplication.activity.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
@@ -19,12 +17,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login_Register_Act extends AppCompatActivity {       //NOTE: ALSO DONT KNOW WHAT WE ARE TRAKING ABO FROM USER MAY NEED TO ADD EMAIL textEdit
+public class Login_Register_Act extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Set Layout
         setContentView(R.layout.login_register_layout);
         // Initialization
         Button signupBtn = findViewById(R.id.btnSignUp_Reg);
@@ -33,11 +30,9 @@ public class Login_Register_Act extends AppCompatActivity {       //NOTE: ALSO D
         EditText usernameConEditText = findViewById(R.id.username_Reg_Con_EditText);
         EditText passwordEditText = findViewById(R.id.password_Reg_EditText);
         EditText passwordConEditText = findViewById(R.id.password_Reg_ConEditText);
-
         ProgressBar progressBar = findViewById(R.id.progressbar);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         // Button Listeners
-
         // Signup
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +70,6 @@ public class Login_Register_Act extends AppCompatActivity {       //NOTE: ALSO D
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(Login_Register_Act.this, "Account created!.",
                                             Toast.LENGTH_SHORT).show();
-
                                     FirebaseUser user = mAuth.getCurrentUser();
 
                                 } else {
