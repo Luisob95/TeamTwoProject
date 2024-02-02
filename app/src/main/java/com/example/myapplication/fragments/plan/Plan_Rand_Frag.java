@@ -1,4 +1,5 @@
 package com.example.myapplication.fragments.plan;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -13,12 +14,15 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
+import com.example.myapplication.UserManager;
+
 
 public class Plan_Rand_Frag extends Fragment {
     // Varriables
     private Spinner spnDifficulty;
     private EditText textFrequency;
     private EditText textDuration;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,7 +54,10 @@ public class Plan_Rand_Frag extends Fragment {
         });
         // Generate call Generate method
         btnGenerate.setOnClickListener(v -> {
-            randomizerSaver(togRandom, togRecovery, togMental, togEndurance, editStartTime, editEndTime, spnDifficulty, textFrequency, textDuration);
+          Object[] saved  =randomizerSaver(togRandom, togRecovery, togMental, togEndurance, editStartTime, editEndTime, spnDifficulty, textFrequency, textDuration);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                UserManager.generatePlan(saved);
+            }
         });
         return view;
 
@@ -85,8 +92,43 @@ public class Plan_Rand_Frag extends Fragment {
         labelDuration.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         btnLayout.addView(textDuration);
     }
-// Main Random Generator
-    public void randomizerSaver(ToggleButton togRandom, ToggleButton togRecovery, ToggleButton togMental, ToggleButton togEndurance, EditText textStartTime, EditText textEndTime, Spinner spnDifficulty, EditText textFrequency, EditText textDuration) {
+// Main Random Generator                             1                     2                        3                         4                       5                        6                    7                       8                       9
+    public Object[] randomizerSaver(ToggleButton togRandom, ToggleButton togRecovery, ToggleButton togMental, ToggleButton togEndurance, EditText textStartTime, EditText textEndTime, Spinner spnDifficulty, EditText textFrequency, EditText textDuration) {
+        Object[] saved = {0,0,0,0,0,0,0,0,0};
+        // Toggle state checks for the Exercise types
+        if(togRecovery.isChecked()){
+            saved[1] = 1;
+        }
+        if(togMental.isChecked()){
+            saved[2] = 1;
+        }
+        if(togEndurance.isChecked()){
+            saved[3] = 1;
+        }
+        // Time Saver
+        saved[4] = textStartTime.getText();
+        saved[5] = textEndTime.getText();
+        // Variation toggle check
+        if(togRandom.isChecked()){
+            saved[0] = 1;
+            if(spnDifficulty.getSelectedItem() == "Easy"){
+                saved[6] = 1;
+            }
+            else if(spnDifficulty.getSelectedItem() == "Medium"){
+                saved[6] = 2;
+            }
+            else if(spnDifficulty.getSelectedItem() == "Hard"){
+                saved[6] = 3;
+            }
+            else{
+                saved[6]= 4;
+            }
+        }
+        else{
+            saved[7] =Integer.parseInt(String.valueOf(textFrequency));
+            saved[8] =Integer.parseInt(String.valueOf(textDuration));
+        }
+        return saved;
     }
 }
 
