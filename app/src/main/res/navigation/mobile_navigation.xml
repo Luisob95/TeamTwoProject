@@ -22,4 +22,10 @@
         android:name="com.example.myapplication.fragments.profile.FragProfile"
         android:label="@string/Profile"
         tools:layout="@layout/frag_profile_layout" />
+
+    <fragment
+        android:id="@+id/navPlanRand"
+        android:name="com.example.myapplication.fragments.plan.Plan_Rand_Frag"
+        android:label="@string/Profile"
+        tools:layout="@layout/plan_rand_layout" />
 </navigation>

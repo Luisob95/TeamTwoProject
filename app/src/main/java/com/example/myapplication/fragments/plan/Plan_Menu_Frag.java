@@ -21,6 +21,7 @@ public class Plan_Menu_Frag extends Fragment {
             .replace(R.id.fragmentSpot, randomizeFragment).addToBackStack(null).commit();
         });
         return view;
+
     }
 }
 

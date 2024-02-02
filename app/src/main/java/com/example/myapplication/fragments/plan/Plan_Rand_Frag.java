@@ -15,7 +15,8 @@ public class Plan_Rand_Frag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Initializers
         View view = inflater.inflate(R.layout.plan_rand_layout, container, false);
-        TextView description = view.findViewById(R.id.exerciseGeneraterDescription);
+        TextView durationText = view.findViewById(R.id.labelTextDuration);
+        TextView perHour = view.findViewById(R.id.labelTextperHour);
         ToggleButton togRandom = view.findViewById(R.id.toggle_btn);
         ToggleButton togRecovery = view.findViewById(R.id.tog_ExerciseType_Recovery);
         ToggleButton togMental = view.findViewById(R.id.tog_ExerciseType_Mental);
@@ -43,7 +44,7 @@ public class Plan_Rand_Frag extends Fragment {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                seekSaver(seekFreq,seekDur,description);
+                seekSaver(seekFreq,seekDur,durationText,perHour);
             }
         });
         seekDur.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -58,12 +59,14 @@ public class Plan_Rand_Frag extends Fragment {
             }
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                seekSaver(seekFreq,seekDur,description);
+                seekSaver(seekFreq,seekDur,durationText,perHour);
 
             }
         });
 
+
         return view;
+
     }
     // Methods
     public void seekImpossible(SeekBar moved, SeekBar notMoved) {
@@ -71,10 +74,11 @@ public class Plan_Rand_Frag extends Fragment {
             notMoved.setProgress(notMoved.getProgress() - 1);
         }
     }
-    public void seekSaver(SeekBar freq, SeekBar dur, TextView desc){
+    public void seekSaver(SeekBar freq, SeekBar dur, TextView durationText, TextView perHour){
         RandomizerSettings.setFrequency(freq.getProgress());
         RandomizerSettings.setDuration(dur.getProgress());
-        desc.setText(freq.getProgress() + " breaks per hour at a max duration of " + dur.getProgress()+"min");
+        durationText.setText(dur.getProgress() + " Minutes per break");
+        perHour.setText(freq.getProgress() + " Breaks per hour");
     }
 }
 
