@@ -7,19 +7,18 @@
 
     <fragment
         android:id="@+id/navHome"
-        android:name="com.example.myapplication.fragments.home.Home_Menu_Frag"
-        android:label="@string/Home"
-        tools:layout="@layout/home_menu_layout" />
+        android:name="com.example.myapplication.fragments.main.Home_Frag"
+        tools:layout="@layout/home_layout" />
 
     <fragment
         android:id="@+id/navPlan"
-        android:name="com.example.myapplication.fragments.plan.Plan_Menu_Frag"
-        android:label="@string/Plan"
-        tools:layout="@layout/plan_menu_layout" />
+        android:name="com.example.myapplication.fragments.main.Plan_Frag"
+        tools:layout="@layout/plan_layout" />
 
     <fragment
         android:id="@+id/navProfile"
-        android:name="com.example.myapplication.fragments.profile.FragProfile"
-        android:label="@string/Profile"
-        tools:layout="@layout/frag_profile_layout" />
+        android:name="com.example.myapplication.fragments.main.Profile_Frag"
+
+        tools:layout="@layout/profile_layout" />
+
 </navigation>

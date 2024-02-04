@@ -14,7 +14,7 @@ public class Plan_Menu_Frag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.plan_menu_layout, container, false);
+        View view = inflater.inflate(R.layout.plan_layout, container, false);
 
         TextView btnRandomize = view.findViewById(R.id.btn_Text_Randomizer);
 

@@ -1,14 +1,12 @@
-<!-- res/drawable/rounded_edittext_selector.xml -->
+<!-- res/drawable/rounded_edittext_selector_checked.xml -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--Pressed -->
-    <item android:state_pressed="true">
+    <item android:state_checked="true">
         <shape>
             <corners android:radius="8dp" />
             <solid android:color="@color/white" />
             <stroke android:color="@color/red" android:width="3dp" />
         </shape>
     </item>
-    <!--Not Pressed -->
     <item>
         <shape>
             <corners android:radius="8dp" />

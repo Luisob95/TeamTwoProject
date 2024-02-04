@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.activity.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.UserManager;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
@@ -17,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
             // Page Layout Setter
-            setContentView(R.layout.login_menu_layout);
+            setContentView(R.layout.login_layout);
 
             //Initializers
             Button loginBtn = findViewById(R.id.btnLogin);
