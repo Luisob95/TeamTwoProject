@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/icon_background"
+        android:icon="@color/black"
         android:label="MinMax"
         android:roundIcon="@mipmap/icon_app_round"
         android:supportsRtl="true"
