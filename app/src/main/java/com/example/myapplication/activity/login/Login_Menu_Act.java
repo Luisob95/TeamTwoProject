@@ -1,5 +1,4 @@
 package com.example.myapplication.activity.login;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myapplication.UserManager;
+import com.example.myapplication.Settings;
 import com.example.myapplication.activity.MainActivity;
 import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,7 +22,7 @@ public class Login_Menu_Act extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Set Layout
-        setContentView(R.layout.login_menu_layout);
+        setContentView(R.layout.login_layout);
         // Initializer
         Button loginBtn = findViewById(R.id.btnLogin);
         EditText usernameEditText = findViewById(R.id.username_EditText);
@@ -62,7 +61,7 @@ public class Login_Menu_Act extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
-                                    UserManager.setUserLoggedIn(true);
+                                    Settings.setLoggedIn(true);
                                     finish();
                                 } else {
                                     // If sign in fails, display a message to the user.

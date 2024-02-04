@@ -24,7 +24,7 @@ public class Plan_Rand_Frag extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.plan_rand_layout, container, false);
+        View view = inflater.inflate(R.layout.plan_layout, container, false);
         // Initializers
         ToggleButton togRandom = view.findViewById(R.id.toggle_btn);
         LinearLayout dynamicLayout = view.findViewById(R.id.linearLayout);

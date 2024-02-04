@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.example.myapplication.FragHome;
 import com.example.myapplication.FragProfile;
 import com.example.myapplication.R;
-import com.example.myapplication.UserManager;
 import com.example.myapplication.activity.login.LoginActivity;
 
 
