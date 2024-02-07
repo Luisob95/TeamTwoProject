@@ -18,7 +18,11 @@
     <fragment
         android:id="@+id/navProfile"
         android:name="com.example.myapplication.fragments.main.Profile_Frag"
-
         tools:layout="@layout/profile_layout" />
+
+    <fragment
+        android:id="@+id/navBreak"
+        android:name="com.example.myapplication.fragments.main.Alert_Frag"
+        tools:layout="@layout/popup_workout" />
 
 </navigation>

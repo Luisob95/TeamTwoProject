@@ -32,6 +32,7 @@ public class Login_Register_Act extends AppCompatActivity {
         EditText passwordConEditText = findViewById(R.id.password_Reg_ConEditText);
         ProgressBar progressBar = findViewById(R.id.progressbar);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        getSupportActionBar().hide();
         // Button Listeners
         // Signup
         signupBtn.setOnClickListener(new View.OnClickListener() {

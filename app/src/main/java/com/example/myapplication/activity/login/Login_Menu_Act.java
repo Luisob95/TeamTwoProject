@@ -30,6 +30,7 @@ public class Login_Menu_Act extends AppCompatActivity {
         TextView signupButton = findViewById(R.id.btnSignUp);
         ProgressBar progressBar = findViewById(R.id.progressbar);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        getSupportActionBar().hide();
         // Button Listeners
         // Login
         loginBtn.setOnClickListener(new View.OnClickListener() {

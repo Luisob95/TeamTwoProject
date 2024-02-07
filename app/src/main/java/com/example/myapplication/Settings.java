@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import java.util.Arrays;
 import java.util.Vector;
 
 public class Settings {          //NOTE NOT SURE IF THIS IS A GOOD WAY OF DOING IT AND PROBABLY WILL MOVE SOME OF THE DATA TO A DATABASE
@@ -9,9 +10,15 @@ public class Settings {          //NOTE NOT SURE IF THIS IS A GOOD WAY OF DOING 
     private static boolean genreEndurance;
     private static int duration;
     private static int frequency;
-    private static Vector<String> exeEndurance;
-    private static Vector<String> exeMental;
-    private static Vector<String> exeRecovery;
+    private static Vector<String> exeEndurance = new Vector<>(
+            Arrays.asList("Push-ups", "Squats", "Sit-ups")
+    );
+    private static Vector<String> exeMental = new Vector<>(
+            Arrays.asList("Breathing", "Socialize", "Walk")
+            );
+    private static Vector<String> exeRecovery= new Vector<>(
+            Arrays.asList("Jog", "Jumping Jacks", "Stretch")
+    );
     // Getters
     public static boolean getRecovery() { return genreRecovery; }
     public static boolean getMental() { return genreMental; }
