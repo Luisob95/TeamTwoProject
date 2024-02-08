@@ -1,8 +1,6 @@
 package com.example.myapplication;
-
 import android.os.Build;
 import androidx.annotation.RequiresApi;
-
 import java.time.Duration;
 import java.time.LocalTime;
 import java.util.concurrent.Executors;
@@ -47,15 +45,8 @@ public class ScheduleManager {
         start = LocalTime.now();
         isOn = true;
         between = Settings.getFrequency();
-        nextExe = start.plusMinutes(between);
-
         // Schedule a task
-        scheduler.schedule(() -> {
-            // Action on event
-                scheduleListener.onScheduleEventTriggered();
-        }, between, TimeUnit.MINUTES);
-
-        refreshTime();
+        mainSchedule(between);
     }
 
     // Stop Scheduler
@@ -72,4 +63,24 @@ public class ScheduleManager {
         Duration diff = Duration.between(LocalTime.now(), nextExe);
         minTilEvent = diff.toMinutes();
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void mainSchedule(int betweenTime){
+        nextExe = LocalTime.now().plusMinutes(betweenTime);
+        scheduler.schedule(() -> {
+            // Action on event
+            scheduleListener.onScheduleEventTriggered();
+        }, betweenTime, TimeUnit.MINUTES);
+        refreshTime();
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void exeSchedule(int betweenTime){
+        nextExe = LocalTime.now().plusMinutes(betweenTime);
+        scheduler.schedule(() -> {
+
+        }, betweenTime, TimeUnit.MINUTES);
+        refreshTime();
+    }
+
+
 }

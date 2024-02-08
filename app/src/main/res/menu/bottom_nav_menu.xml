@@ -2,13 +2,13 @@
     <item
         android:id="@+id/navHome"
         android:title="@string/Home"
-        android:icon="@drawable/icon_home_transparent"/>
+        android:icon="@drawable/icon_home"/>
     <item
         android:id="@+id/navPlan"
         android:title="@string/Plan"
-        android:icon="@drawable/icon_rocket_transparent"/>
+        android:icon="@drawable/icon_rocket"/>
     <item
         android:id="@+id/navProfile"
         android:title="@string/Profile"
-        android:icon="@drawable/icon_profile_transparent" />
+        android:icon="@drawable/icon_profile" />
 </menu>

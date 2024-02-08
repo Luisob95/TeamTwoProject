@@ -45,16 +45,28 @@ public class Settings {          //NOTE NOT SURE IF THIS IS A GOOD WAY OF DOING 
     public static void setExeMental(Vector<String> value){ exeMental = value; }
     public static void setExeRecovery(Vector<String> value){ exeRecovery = value; }
 
-    private static Object[][] userStats = {
-            {"Push-ups", 25},
-            {"Pull-ups", 34},
-            {"Sit-ups", 23},
+    private static Vector<Vector<Object>> userStats = new Vector<Vector<Object>>() {{
+        //                                    Exercise    Time    Amount
+        add(new Vector<Object>(Arrays.asList("Push-ups","12:45", 25)));
+        add(new Vector<Object>(Arrays.asList("Pull-ups","12:50", 34)));
+        add(new Vector<Object>(Arrays.asList("Sit-ups", "15:32", 23)));
+        add(new Vector<Object>(Arrays.asList("Sit-ups", "15:32", 23)));
+
+    }};
+
+    public static Object[][] trackedUserStats = {
+            {"Push-ups",34},
+            {"Sit-ups", 80},
+            {"Breaks", 3},
+            {"Endurance",4}
     };
 
-    public static Object[][] getCurrentStat() {
+    public static Vector<Vector<Object>> getCurrentStat() {
         return userStats;
     }
-
+    public static Object[][] getTrackedUserStats() {
+        return trackedUserStats;
+    }
 }
 // NOTE IT WOULD BE COOL TO MAKE THE A MAX TIME FOR THE VECTOR TO THEN ROLL ON THE AMOUNT OF TIME YOU PERFORM THAT EXERCISE
 // FIND THE CORRESPONDING VECTOR AND PULLING A RANDOM EXERCISE FROM IT                  Maybe have the corosponding body part so it doesnt choos push-ups after handstand presses Only needed for endurance and could just add a second roll inside the if

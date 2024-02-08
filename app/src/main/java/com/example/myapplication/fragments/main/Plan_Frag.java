@@ -40,8 +40,7 @@ public class Plan_Frag extends Fragment {
         seekDur = view.findViewById(R.id.duration);
         togStart = view.findViewById(R.id.startTog);
         // Listeners
-        // Not Sure what to do with this yet it might be if the user wants a random time generator for a spontaneous break
-        togRandom.setOnClickListener(v -> {});
+        togRandom.setOnClickListener(v -> {});  // Not Sure what to do with this yet it might be if the user wants a random time generator for a spontaneous break
         togRecovery.setOnClickListener(v -> {});
         togMental.setOnClickListener(v -> {});
         togEndurance.setOnClickListener(v -> {});

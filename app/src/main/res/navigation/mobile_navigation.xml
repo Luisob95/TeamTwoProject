@@ -5,10 +5,14 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navHome">
 
+
+
     <fragment
         android:id="@+id/navHome"
         android:name="com.example.myapplication.fragments.main.Home_Frag"
-        tools:layout="@layout/home_layout" />
+        tools:layout="@layout/home_layout" >
+
+    </fragment>
 
     <fragment
         android:id="@+id/navPlan"
@@ -18,11 +22,22 @@
     <fragment
         android:id="@+id/navProfile"
         android:name="com.example.myapplication.fragments.main.Profile_Frag"
-        tools:layout="@layout/profile_layout" />
+        tools:layout="@layout/profile_layout" >
+    </fragment>
 
     <fragment
         android:id="@+id/navBreak"
         android:name="com.example.myapplication.fragments.main.Alert_Frag"
-        tools:layout="@layout/popup_workout" />
+        tools:layout="@layout/popup_workout" >
+        <action
+            android:id="@+id/action_navBreak_to_navHome"
+            app:destination="@id/navHome" />
+        <action
+            android:id="@+id/action_navBreak_to_navProfile"
+            app:destination="@id/navProfile" />
+        <action
+            android:id="@+id/action_navBreak_to_navPlan"
+            app:destination="@id/navPlan" />
+    </fragment>
 
 </navigation>
