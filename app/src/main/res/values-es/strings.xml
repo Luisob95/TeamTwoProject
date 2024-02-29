@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="username">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Acceso</string>
+    <string name="icon_name">icon_Name</string>
+    <string name="cancel">Cancelar</string>
+    <string name="sign_up">Inscribirse</string>
+    <string name="help">Ayuda</string>
+    <string name="logins">Acceso</string>
+    <string name="sign_ups">Inscribirse</string>
+    <string name="remember_me">Recuerdame</string>
+    <string name="home_screen_background">Fondo de la pantalla de inicio</string>
+    <string name="profile_icon">Icono de perfil</string>
+    <string name="home_icon">Icono de inicio</string>
+    <string name="rocket_icon">Icono de cohete</string>
+    <string name="Profile">Perfil</string>
+    <string name="Plan">Plan</string>
+    <string name="Home">Inicio</string>
+    <string name="generate">Generar</string>
+    <string name="back">Atras</string>
+    <string name="confirm_username">Confirmar Usuario</string>
+    <string name="confirm_password">Confirmar Contraseña</string>
+    <string name="signup">Inscribirse</string>
+    <string name="all">Todo</string>
+    <string name="exercises">Ejercicios</string>
+    <string name="recovery">Recuperación</string>
+    <string name="mental">Mental</string>
+    <string name="temp">Temporal</string>
+    <string name="temp_button">Botón temporal</string>
+    <string name="hello">Hola</string>
+    <string name="max_duration">Duración máxima</string>
+    <string name="times_per_hour">Veces por hora</string>
+    <string name="start">Empezar</string>
+    <string name="stop">Parar</string>
+    <string name="focus">Concentrar</string>
+    <string name="endurance">Resistencia</string>
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="night_mode">Modo Nocturno</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="silent_mode">Modo Silencioso</string>
+    <string name="language">Lenguage</string>
+    <string name="contact">Contacto</string>
+    <string name="about">Acerca</string>
+    <string name="save_settings">Guardar cambios</string>
+    <string name="select_theme">Seleccionar tema:</string>
+    <string name="enable_notifications">habilitar notificaciones</string>
+    <string name="settings">Ajustes</string>
+    <string name="langOption">Ingles</string>
+    <string name="second_Lang_opt">Español</string>
+    <string name="select_setting">Seleccionar Ajuste</string>
+
+</resources>

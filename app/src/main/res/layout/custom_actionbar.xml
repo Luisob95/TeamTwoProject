@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:textAlignment="center"
-    android:text = "Hello"
+    android:text = "@string/hello"
     android:textSize="18sp"
     android:textColor="@android:color/white"
     android:textStyle="bold" />
