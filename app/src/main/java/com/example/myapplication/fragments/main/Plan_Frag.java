@@ -20,8 +20,12 @@ public class Plan_Frag extends Fragment {
     private TextView perHour;
     private SeekBar seekFreq;
     private SeekBar seekDur;
+    private ToggleButton togRecovery;
+    private ToggleButton togEndurance;
+    private ToggleButton togMental;
+    private ToggleButton togStart;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+    @RequiresApi(api = Build.VERSION_CODES.S)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Initializers
@@ -29,29 +33,27 @@ public class Plan_Frag extends Fragment {
         durationText = view.findViewById(R.id.labelTextDuration);
         perHour = view.findViewById(R.id.labelTextperHour);
         ToggleButton togRandom = view.findViewById(R.id.toggle_btn);
-        ToggleButton togRecovery = view.findViewById(R.id.tog_ExerciseType_Recovery);
-        ToggleButton togMental = view.findViewById(R.id.tog_ExerciseType_Mental);
-        ToggleButton togEndurance = view.findViewById(R.id.tog_ExerciseType_Endurance);
+        togRecovery = view.findViewById(R.id.tog_ExerciseType_Recovery);
+        togMental = view.findViewById(R.id.tog_ExerciseType_Mental);
+        togEndurance = view.findViewById(R.id.tog_ExerciseType_Endurance);
         seekFreq = view.findViewById(R.id.timePerHour);
         seekDur = view.findViewById(R.id.duration);
-        ToggleButton togStart = view.findViewById(R.id.startTog);
-        // Initial values print to screen Might Be unnecessary if I put the Default text to chose your Break time or somthing
-        seekSaver(seekFreq, seekDur, durationText, perHour);
+        togStart = view.findViewById(R.id.startTog);
         // Listeners
-        // Not Sure what to do with this yet it might be if the user wants a random time generator for a spontaneous break
-        togRandom.setOnClickListener(v -> {/* Check Value if statement on boolean*/});
-        togRecovery.setOnClickListener(v -> { /* Going to put an if statement in her to turn off the toggle */});
-        togMental.setOnClickListener(v -> { /* Going to put an if statement in her to turn off the toggle */ });
-        togEndurance.setOnClickListener(v -> { /* Going to put an if statement in her to turn off the toggle */ });
+        togRandom.setOnClickListener(v -> {});  // Not Sure what to do with this yet it might be if the user wants a random time generator for a spontaneous break
+        togRecovery.setOnClickListener(v -> {});
+        togMental.setOnClickListener(v -> {});
+        togEndurance.setOnClickListener(v -> {});
         SeekBar.OnSeekBarChangeListener seekBarChangeListener = createSeekBarChangeListener();
         seekFreq.setOnSeekBarChangeListener(seekBarChangeListener);
         seekDur.setOnSeekBarChangeListener(seekBarChangeListener);
+
         // Start up or shutdown
         togStart.setOnClickListener(v -> {
             // if is on
                 if(togStart.isChecked()) {
                     // check and save settings
-                    if(settingSaver(togRandom,togRecovery,togMental,togEndurance)){
+                    if(settingSaver()){
                         ScheduleManager.startScheduler();
                     }//failed check turn off
                     else{
@@ -59,16 +61,19 @@ public class Plan_Frag extends Fragment {
                     }
                 }else{// if toggle is on turn off
                     ScheduleManager.stopScheduler();
+                    // turn on all settings
+                    enableDisableBtn(true);
                 }
         });
         return view;
     }
     // Methods
-    // May not need this if we use defualt text value it will move to the listener method
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void seekSaver(SeekBar freq, SeekBar dur, TextView durationText, TextView perHour) {
-        durationText.setText("Breaks are " +dur.getProgress() + " minutes");
-        perHour.setText("Break every "+ freq.getProgress() + " minutes");
+    public void  enableDisableBtn(boolean onoff){
+        togEndurance.setEnabled(onoff);
+        togMental.setEnabled(onoff);
+        togRecovery.setEnabled(onoff);
+        seekDur.setEnabled(onoff);
+        seekFreq.setEnabled(onoff);
     }
     private SeekBar.OnSeekBarChangeListener createSeekBarChangeListener() {
         return new SeekBar.OnSeekBarChangeListener() {
@@ -76,7 +81,8 @@ public class Plan_Frag extends Fragment {
             @Override
             // on progress change this will be where the seekSaver code will be
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                seekSaver(seekFreq, seekDur, durationText, perHour);
+                durationText.setText("Breaks are " +seekDur.getProgress() + " minutes");
+                perHour.setText("Break every "+ seekFreq.getProgress() + " minutes");
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
@@ -85,17 +91,19 @@ public class Plan_Frag extends Fragment {
         };
     }
     // Settings error checker and saver
-    private boolean settingSaver(ToggleButton togRandom, ToggleButton togRecovery, ToggleButton togMental, ToggleButton togEndurance){
+    @RequiresApi(api = Build.VERSION_CODES.S)
+    private boolean settingSaver(){
         // Error Checker
         boolean isGood = false;
         // if at least one is checked save and return true
-        if(togRecovery.isChecked()==true||togMental.isChecked()==true||togEndurance.isChecked()==true) {
-
+        if(togRecovery.isChecked()||togMental.isChecked()||togEndurance.isChecked()) {
+// After you Save the setting disable the toggle.
             Settings.setRecovery(togRecovery.isChecked());
             Settings.setEndurance(togEndurance.isChecked());
             Settings.setMental(togMental.isChecked());
             Settings.setFrequency(seekFreq.getProgress());
             Settings.setDuration(seekDur.getProgress());
+            enableDisableBtn(false);
             isGood= true;
         }
         else { // error message
@@ -103,5 +111,14 @@ public class Plan_Frag extends Fragment {
         }
         return isGood;
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(togStart.isChecked()) {
+            enableDisableBtn(false);
+        }
+    }
+
 }
 // Hold down Function tha makes pop up scroll view of the vector corresponding to the toggle
+//Bugs switching off and on to the tab re enables the buttons

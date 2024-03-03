@@ -1,5 +1,5 @@
-<!-- res/layout/custom_actionbar.xml -->
-<TextView
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/customTitleTextView"
     android:layout_width="412dp"
@@ -10,3 +10,19 @@
     android:textSize="18sp"
     android:textColor="@android:color/white"
     android:textStyle="bold" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/action_text"
+        android:gravity="center"
+        android:fontFamily="@font/alarm_clock"
+        android:text="temp"
+        android:textSize ="50dp"
+        android:textColor="@color/black" />
+
+
+
+</RelativeLayout>
