@@ -49,7 +49,8 @@
     <string name="langOption">English</string>
     <string name="second_Lang_opt">Spanish</string>
     <string name="select_setting">Select Setting</string>
-    <string name="Next">next</string>
+    <string name="next">next</string>
+    <string name="exercise">exercise</string>
 
 
 </resources>

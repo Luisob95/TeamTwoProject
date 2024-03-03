@@ -50,5 +50,6 @@
     <string name="langOption">Ingles</string>
     <string name="second_Lang_opt">Español</string>
     <string name="select_setting">Seleccionar Ajuste</string>
-
+    <string name="next">siguiente</string>
+    <string name="exercise">exercise</string>
 </resources>
