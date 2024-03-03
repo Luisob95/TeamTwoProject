@@ -38,7 +38,7 @@
         android:layout_height="48dp"
         android:background="@drawable/round_btn"
         android:drawablePadding="4dp"
-        android:text="@string/Next"
+        android:text="@string/next"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

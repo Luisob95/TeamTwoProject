@@ -1,290 +1,73 @@
-<LinearLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:background="@color/red">
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/Profile"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+    <!-- Checkbox preference -->
+    <CheckBox
+        android:id="@+id/notification_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enable_notifications"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
 
+    <!-- Spinner preference -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select_setting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_checkbox"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/themeTextView"/>
 
-    </RelativeLayout>
+    <Spinner
+        android:id="@+id/languageSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/themeTextView"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/language_options"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!-- Button to save settings -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_settings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/languageSpinner"
+        android:layout_marginTop="24dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="115dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/profile_example" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="John Doe"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/round_edit_button"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:text="Edit Profile"
-                android:textAllCaps="false" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="15dp">
-
-                <!-- Dark Mode -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/nightModeIcon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/icon_background"
-                        android:padding="12dp"
-                        android:src="@drawable/baseline_mode_night_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@+id/nightModeIcon"
-                        android:text="Night Mode"
-                        android:textColor="@color/black"
-                        android:textStyle="bold|italic" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp" />
-
-
-                </RelativeLayout>
-                <!-- Notifications -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/notificationsIcon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_notifcations"
-                        android:padding="12dp"
-                        android:src="@drawable/baseline_notifications_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@+id/notificationsIcon"
-                        android:text="Notifications"
-                        android:textColor="@color/black"
-                        android:textStyle="bold|italic" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp" />
-
-
-                </RelativeLayout>
-                <!-- Language  -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/silentMode"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_silent"
-                        android:padding="12dp"
-                        android:src="@drawable/baseline_do_not_disturb_on_total_silence_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@+id/silentMode"
-                        android:text="Silent Mode"
-                        android:textColor="@color/black"
-                        android:textStyle="bold|italic" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/round_background"
-                android:orientation="vertical"
-                android:padding="15dp">
-                <!-- Dark Mode -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/languageIcon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_language"
-                        android:padding="12dp"
-                        android:src="@drawable/baseline_language_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@+id/languageIcon"
-                        android:text="Language"
-                        android:textColor="@color/black"
-                        android:textStyle="bold|italic" />
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/languageSpinner"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp" />
-
-
-                </RelativeLayout>
-                <!-- Notifications -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/contactIcon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_contact"
-                        android:padding="12dp"
-                        android:src="@drawable/baseline_contact_support_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@+id/contactIcon"
-                        android:text="Contact"
-                        android:textColor="@color/black"
-                        android:textStyle="bold|italic" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="8dp"
-                        android:src="@drawable/baseline_chevron_right_24" />
-
-
-                </RelativeLayout>
-                <!-- Language  -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-
-                    <ImageView
-                        android:id="@+id/aboutIcon"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/round_back_about"
-                        android:padding="12dp"
-                        android:src="@drawable/baseline_android_24" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="10dp"
-                        android:layout_toEndOf="@+id/aboutIcon"
-                        android:text="About"
-                        android:textColor="@color/black"
-                        android:textStyle="bold|italic" />
 
 
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="8dp"
-                        android:src="@drawable/baseline_chevron_right_24" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-</LinearLayout>
