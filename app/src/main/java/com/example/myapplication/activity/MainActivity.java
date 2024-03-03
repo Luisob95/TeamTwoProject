@@ -1,5 +1,6 @@
 package com.example.myapplication.activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements ScheduleManager.ScheduleListener {
     private Handler handler = new Handler(Looper.getMainLooper());
-    private final int REFRESH_INTERVAL = 10000;
+    private final int REFRESH_INTERVAL = 1000;
     private ActionBar actionBar;
     private TextView actionText;
     private NavController navController;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements ScheduleManager.S
             public void run() {
                 // Changes Actionbar depending on the state
                 actionBarDynVisuals();
+
                 handler.postDelayed(this, REFRESH_INTERVAL);
             }
         };
@@ -71,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements ScheduleManager.S
     @Override // ScheduleListener trigger
     public void onScheduleEventTriggered() {
         // Navigate to break plan
+
+        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.boats);
+        //music.setLooping(Settings.startSelected);
+        music.start();
         navController.navigate(R.id.navBreak);
     }
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -80,9 +86,11 @@ public class MainActivity extends AppCompatActivity implements ScheduleManager.S
             // Calculate the countdown
             ScheduleManager.refreshTime();
             // Change text to new countdown result
-            long min =ScheduleManager.getMinTilEvent();
+            Long[] minSec = ScheduleManager.getMinTilEvent();
+            Long min = minSec[0];
+            Long sec = minSec[1];
             // Set Action to timer
-            actionText.setText(String.valueOf(min)+" min");
+            actionText.setText(String.valueOf(min+":"+sec));
             if(min<3){// Text Color and background changer based on state
                 actionText.setTextColor(getColor(R.color.red));
                 actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.action_black_red));
@@ -112,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements ScheduleManager.S
 
 
 
-// NEW plan dont schedule reacuring plans because breaks could take longer than expected so come up with a prompt to start click start
+// NEW plan dont schedule recurring plans because breaks could take longer than expected so come up with a prompt to start click start
 // once start cycle through the first generated if endurance have imput promt clicking enter goes to the next. on end schedule a new event
 // count down timer on the break
 //

@@ -12,6 +12,7 @@
         android:layout_height="59dp"
         android:gravity="center"
         android:text="Title Number"
+        android:fontFamily="@font/minmax_regular"
         android:textColor="@color/black"
         android:textSize="50dp"
         android:textStyle="bold"
@@ -38,7 +39,7 @@
     <Button
         android:id="@+id/btnStatCycle"
         android:layout_width="75dp"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:background="@drawable/round_btn"
         android:text="Temp"
         app:layout_constraintBottom_toBottomOf="parent"

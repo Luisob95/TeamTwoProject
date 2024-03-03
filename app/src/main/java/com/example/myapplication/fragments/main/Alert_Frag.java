@@ -13,6 +13,8 @@ import androidx.navigation.Navigation;
 import com.example.myapplication.PlanGenerator;
 import com.example.myapplication.R;
 import com.example.myapplication.ScheduleManager;
+import com.example.myapplication.Settings;
+
 import java.util.Vector;
 public class Alert_Frag extends Fragment {
     private int i;
@@ -28,10 +30,17 @@ public class Alert_Frag extends Fragment {
         Button nextStart = view.findViewById(R.id.btnNext);
         Vector<String> plan = PlanGenerator.generatePlan(); // This Might change to a on the spot generated if settings get changed to a always changeable state
         nextStart.setText("Start"); // Need to change the base text to this
+        Settings.startSelected = false;
+        String dur = String.valueOf(Settings.getDuration());
+
+        durationTxt.setText("Total " +dur + " Min");
         // Listeners
         nextStart.setOnClickListener(v -> {
             // start timer
-            ScheduleManager.exeSchedule(5);
+            ScheduleManager.exeSchedule(1);
+            durationTxt.setText("1 Min");
+
+
             // Check if its the last exercise
             if(i< plan.size()){
                 nextStart.setText("Next");
@@ -41,7 +50,10 @@ public class Alert_Frag extends Fragment {
             else if(i==plan.size()){
                 nextStart.setText("End");
                 i=0;
+                ScheduleManager.stopScheduler();
+                ScheduleManager.startScheduler();
                 navController.popBackStack();
+
 
             }
         });

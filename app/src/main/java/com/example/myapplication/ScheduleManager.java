@@ -13,6 +13,7 @@ public class ScheduleManager {
     private static LocalTime start;
     private static LocalTime nextExe;
     private static long minTilEvent;
+    private static long secTilEvent;
     private static boolean isOn = false;
     private static ScheduleListener scheduleListener;
     private static int between;
@@ -23,9 +24,10 @@ public class ScheduleManager {
 
     // Getters
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static long getMinTilEvent() {
+    public static Long[] getMinTilEvent() {
         refreshTime();
-        return minTilEvent;
+
+        return new Long[]{minTilEvent, secTilEvent};
     }
 
     public static boolean getIsOn() {
@@ -62,6 +64,7 @@ public class ScheduleManager {
     public static void refreshTime() {
         Duration diff = Duration.between(LocalTime.now(), nextExe);
         minTilEvent = diff.toMinutes();
+        secTilEvent = diff.minusMinutes(minTilEvent).getSeconds();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
