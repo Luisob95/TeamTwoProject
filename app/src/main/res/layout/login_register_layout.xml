@@ -119,7 +119,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_fullname_3d" />
+        app:srcCompat="@drawable/icon_minmax_fill_white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

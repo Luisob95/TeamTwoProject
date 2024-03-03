@@ -13,43 +13,77 @@ public class ScheduleManager {
     private static LocalTime start;
     private static LocalTime nextExe;
     private static long minTilEvent;
+    private static long secTilEvent;
     private static boolean isOn = false;
+    private static ScheduleListener scheduleListener;
+    private static int between;
+
+    public interface ScheduleListener {
+        void onScheduleEventTriggered();
+    }
 
     // Getters
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public static long getMinTilEvent(){
+    public static Long[] getMinTilEvent() {
         refreshTime();
-        return minTilEvent;
+
+        return new Long[]{minTilEvent, secTilEvent};
     }
-    public static boolean getIsOn(){
+
+    public static boolean getIsOn() {
         return isOn;
     }
-// Start Scheduler
+
+    // Set ScheduleListener
+    public static void setScheduleListener(ScheduleListener listener) {
+        scheduleListener = listener;
+    }
+
+    // Start Scheduler
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void startScheduler() {
         // Initialize
         scheduler = Executors.newScheduledThreadPool(1);
         start = LocalTime.now();
-        isOn =true;
-        int between = Settings.getFrequency();
-        nextExe = start.plusMinutes(between);
-        scheduler.scheduleAtFixedRate(() -> {
-            // Action on event
-
-        }, 0, between, TimeUnit.MINUTES);
-        refreshTime();
+        isOn = true;
+        between = Settings.getFrequency();
+        // Schedule a task
+        mainSchedule(between);
     }
-// Stop Scheduler
+
+    // Stop Scheduler
     public static void stopScheduler() {
         if (scheduler != null) {
             scheduler.shutdown();
             isOn = false;
         }
     }
-// Refresh is mostly for screen text refresher
+
+    // Refresh is mostly for screen text refresher
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void refreshTime() {
-        Duration diff = Duration.between(LocalTime.now(),nextExe);
+        Duration diff = Duration.between(LocalTime.now(), nextExe);
         minTilEvent = diff.toMinutes();
+        secTilEvent = diff.minusMinutes(minTilEvent).getSeconds();
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void mainSchedule(int betweenTime){
+        nextExe = LocalTime.now().plusMinutes(betweenTime);
+        scheduler.schedule(() -> {
+            // Action on event
+            scheduleListener.onScheduleEventTriggered();
+        }, betweenTime, TimeUnit.MINUTES);
+        refreshTime();
+    }
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void exeSchedule(int betweenTime){
+        nextExe = LocalTime.now().plusMinutes(betweenTime);
+        scheduler.schedule(() -> {
+
+        }, betweenTime, TimeUnit.MINUTES);
+        refreshTime();
+    }
+
+
 }
